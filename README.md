@@ -1,81 +1,124 @@
-# Projeto Angular de Gerenciamento de Perfis
+# Avaliação Angular
 
-Este projeto é uma aplicação Angular para gerenciar perfis de pessoas, permitindo listar, cadastrar, editar e excluir perfis através de uma interface web.
+## Descrição do Projeto
+
+Este projeto é uma aplicação Angular desenvolvida para gerenciar perfis de pessoas. A aplicação permite listar, cadastrar, editar e excluir perfis através de uma interface web amigável.
 
 ## Tecnologias Utilizadas
 
-- Angular 16
-- TypeScript
-- HTML/CSS
-- Bootstrap (para estilos básicos)
-
-## Funcionalidades Implementadas
-
-1. **Listagem de Perfis:**
-   - Exibe uma tabela com os perfis existentes, incluindo ID, Nome, Perfil, Idade, E-mail, Ativo, País, Nível de Experiência.
-   - Botões de Ações para Editar e Excluir cada perfil.
-
-2. **Cadastro de Perfis:**
-   - Formulário para inserir um novo perfil com campos obrigatórios como Nome, Perfil, Idade e E-mail.
-
-3. **Edição de Perfis:**
-   - Formulário pré-preenchido com os dados do perfil selecionado para edição.
-
-4. **Exclusão de Perfis:**
-   - Confirmação antes de excluir um perfil.
+- **Angular**: Framework principal utilizado para o desenvolvimento da aplicação.
+- **Bootstrap**: Biblioteca de CSS para estilização da interface.
+- **SweetAlert2**: Biblioteca para exibição de alertas estilizados.
+- **JSON Server**: Utilizado para simular uma API RESTful para armazenamento de dados.
+- **TypeScript**: Linguagem de programação usada para desenvolvimento do projeto.
+- **RxJS**: Biblioteca para programação reativa, utilizada com Angular para manipulação de observables.
 
 ## Estrutura do Projeto
 
-- |-- src/
-- |-- app/
-- |-- pages/
-- |-- home/
-- |-- home.component.html
-- |-- home.component.ts
-- |-- home.component.css
-- |-- profile/
-- |-- profile-list/
-- |-- profile-list.component.html
-- |-- profile-list.component.ts
-- |-- profile-list.component.css
-- |-- profile-create-update/
-- |-- profile-create-update.component.html
-- |-- profile-create-update.component.ts
-- |-- profile-create-update.component.css
-- |-- services/
-- |-- profile.service.ts
-- |-- app-routing.module.ts
-- |-- app.module.ts
-- |-- angular.json
-- |-- package.json
-- |-- README.md
-- |-- tsconfig.json
-- |-- ...
+A estrutura do projeto está organizada da seguinte forma:
 
-## Como Executar o Projeto
+- src/
+- ├── app/
+- │ ├── components/
+- │ │ ├── profile/
+- │ │ │ ├── profile-list/
+- │ │ │ │ ├── profile-list.component.html
+- │ │ │ │ ├── profile-list.component.ts
+- │ │ │ │ ├── profile-list.component.css
+- │ │ │ ├── profile-create-update/
+- │ │ │ │ ├── profile-create-update.component.html
+- │ │ │ │ ├── profile-create-update.component.ts
+- │ │ │ │ ├── profile-create-update.component.css
+- │ ├── services/
+- │ │ ├── profile.service.ts
+- │ ├── interfaces/
+- │ │ ├── person-model.ts
+- │ ├── pages/
+- │ │ ├── home/
+- │ │ │ ├── home.component.html
+- │ │ │ ├── home.component.ts
+- │ │ │ ├── home.component.css
+- │ │ ├── profile/
+- │ │ │ ├── profile-list/
+- │ │ │ │ ├── profile-list.component.html
+- │ │ │ │ ├── profile-list.component.ts
+- │ │ │ │ ├── profile-list.component.css
+- │ │ │ ├── profile-create-update/
+- │ │ │ │ ├── profile-create-update.component.html
+- │ │ │ │ ├── profile-create-update.component.ts
+- │ │ │ │ ├── profile-create-update.component.css
+- │ ├── app-routing.module.ts
+- │ ├── app.component.html
+- │ ├── app.component.ts
+- │ ├── app.module.ts
+- ├── assets/
+- ├── environments/
+- ├── index.html
+- ├── styles.css
 
-Para executar este projeto localmente, siga os passos abaixo:
+## Funcionalidades
 
-1. **Pré-requisitos:**
-   - Node.js e npm instalados globalmente na sua máquina.
+- **Listagem de Perfis**: Visualização de todos os perfis cadastrados na aplicação.
+- **Cadastro de Perfis**: Adição de novos perfis com campos validados.
+- **Edição de Perfis**: Edição das informações dos perfis cadastrados.
+- **Exclusão de Perfis**: Exclusão de perfis com confirmação através de alertas estilizados.
 
-2. **Clonar o Repositório:**
-   ```bash
-   git clone https://github.com/seu-usuario/seu-projeto.git
-   cd seu-projeto
-   npm install
-   ng serve
+## Configuração e Execução do Projeto
+### Pré-requisitos
 
-   Acessar a Aplicação:
-   Abra seu navegador e acesse http://localhost:4200/
-   ```
+- Node.js instalado.
+- Angular CLI instalado.
+- JSON Server instalado.
+- SweetAlert2 instalado.
+
+### Instalação
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
+```
+
+## Instale as dependências:
+```bash
+npm install
+```
+
+## Configuração do JSON Server
+Crie um arquivo db.json na raiz do projeto com o seguinte conteúdo:
+```json
+{
+  "profiles": []
+}
+```
+
+## Execute o JSON Server:
+```bash
+npx json-server --watch db.json --port 3000
+```
+
+# Execução da Aplicação
+## Inicie o servidor de desenvolvimento do Angular:
+```bash
+ng serve
+Abra o navegador e acesse http://localhost:4200.
+```
+
+## Navegação
+- Home: Página inicial com informações sobre o projeto e sobre o desenvolvedor.
+- Listagem de Perfis: Página para listar todos os perfis cadastrados.
+- Cadastro de Perfil: Página para cadastrar novos perfis.
+- Edição de Perfil: Página para editar perfis existentes.
 
 # Exemplo em imagens:
 ## Página home:
-![Alt text](image.png)
+![image](https://github.com/LuscaKF/AvAngularFront/assets/62342102/7d6f72e5-b79f-4df3-a996-d4c1402e6180)
 
 ## Página de perfis:
-![Alt text](image-1.png)
+![image](https://github.com/LuscaKF/AvAngularFront/assets/62342102/f2ca7323-54bd-48ac-b5e8-863ae09d2f1b)
 
 ## Página de cadastro e edição:
-![Alt text](image-2.png)
+![image](https://github.com/LuscaKF/AvAngularFront/assets/62342102/eaea2be9-f856-47fc-87b3-74992fd11f70)
+![image](https://github.com/LuscaKF/AvAngularFront/assets/62342102/40cc611a-cd0f-42ab-9e96-ed0f1bc53e96)
+
