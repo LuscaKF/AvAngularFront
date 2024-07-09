@@ -1,47 +1,54 @@
-<div class="container">
-    <form (ngSubmit)="onSubmit()" [formGroup]="profileForm">
+<!-- profile-create-update.component.html -->
+<div class="container mt-5">
+    <div class="card p-4 shadow-sm">
+      <h2 class="mb-4 text-center">{{ isEditMode ? 'Editar Usuário' : 'Cadastrar Usuário' }}</h2>
+      <form (ngSubmit)="onSubmit()" [formGroup]="profileForm">
         <div class="mb-3">
-            <label for="name" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="name" formControlName="name" required>
-            <div *ngIf="profileForm.get('name')?.invalid && (profileForm.get('name')?.dirty || profileForm.get('name')?.touched)" class="invalid-feedback">
-                <div *ngIf="profileForm.get('name')?.errors?.['required']">Nome é obrigatório.</div>
-            </div>
+          <label for="name" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="name" formControlName="name" required>
+          <div *ngIf="profileForm.get('name')?.invalid && (profileForm.get('name')?.dirty || profileForm.get('name')?.touched)" class="invalid-feedback">
+            <div *ngIf="profileForm.get('name')?.errors?.['required']">Nome é obrigatório.</div>
+          </div>
         </div>
         <div class="mb-3">
-            <label for="role" class="form-label">Perfil</label>
-            <input type="text" class="form-control" id="role" formControlName="role" required>
-            <div *ngIf="profileForm.get('role')?.invalid && (profileForm.get('role')?.dirty || profileForm.get('role')?.touched)" class="invalid-feedback">
-                <div *ngIf="profileForm.get('role')?.errors?.['required']">Perfil é obrigatório.</div>
-            </div>
+          <label for="role" class="form-label">Perfil</label>
+          <input type="text" class="form-control" id="role" formControlName="role" required>
+          <div *ngIf="profileForm.get('role')?.invalid && (profileForm.get('role')?.dirty || profileForm.get('role')?.touched)" class="invalid-feedback">
+            <div *ngIf="profileForm.get('role')?.errors?.['required']">Perfil é obrigatório.</div>
+          </div>
         </div>
         <div class="mb-3">
-            <label for="age" class="form-label">Idade</label>
-            <input type="number" class="form-control" id="age" formControlName="age" required>
-            <div *ngIf="profileForm.get('age')?.invalid && (profileForm.get('age')?.dirty || profileForm.get('age')?.touched)" class="invalid-feedback">
-                <div *ngIf="profileForm.get('age')?.errors?.['required']">Idade é obrigatória.</div>
-                <div *ngIf="profileForm.get('age')?.errors?.['min']">A idade deve ser um número positivo.</div>
-            </div>
+          <label for="age" class="form-label">Idade</label>
+          <input type="number" class="form-control" id="age" formControlName="age" required>
+          <div *ngIf="profileForm.get('age')?.invalid && (profileForm.get('age')?.dirty || profileForm.get('age')?.touched)" class="invalid-feedback">
+            <div *ngIf="profileForm.get('age')?.errors?.['required']">Idade é obrigatória.</div>
+            <div *ngIf="profileForm.get('age')?.errors?.['min']">A idade deve ser um número positivo.</div>
+          </div>
         </div>
         <div class="mb-3">
-            <label for="email" class="form-label">E-mail</label>
-            <input type="email" class="form-control" id="email" formControlName="email" required>
-            <div *ngIf="profileForm.get('email')?.invalid && (profileForm.get('email')?.dirty || profileForm.get('email')?.touched)" class="invalid-feedback">
-                <div *ngIf="profileForm.get('email')?.errors?.['required']">E-mail é obrigatório.</div>
-                <div *ngIf="profileForm.get('email')?.errors?.['email']">E-mail inválido.</div>
-            </div>
+          <label for="email" class="form-label">E-mail</label>
+          <input type="email" class="form-control" id="email" formControlName="email" required>
+          <div *ngIf="profileForm.get('email')?.invalid && (profileForm.get('email')?.dirty || profileForm.get('email')?.touched)" class="invalid-feedback">
+            <div *ngIf="profileForm.get('email')?.errors?.['required']">E-mail é obrigatório.</div>
+            <div *ngIf="profileForm.get('email')?.errors?.['email']">E-mail inválido.</div>
+          </div>
+        </div>
+        <div class="form-check mb-3">
+          <input type="checkbox" class="form-check-input" id="isActive" formControlName="isActive">
+          <label for="isActive" class="form-check-label">Ativo</label>
         </div>
         <div class="mb-3">
-            <label for="isActive" class="form-check-label">Ativo</label>
-            <input type="checkbox" class="form-check-input" id="isActive" formControlName="isActive">
+          <label for="country" class="form-label">País</label>
+          <input type="text" class="form-control" id="country" formControlName="country">
         </div>
         <div class="mb-3">
-            <label for="country" class="form-label">País</label>
-            <input type="text" class="form-control" id="country" formControlName="country">
+          <label for="experience" class="form-label">Nível de Experiência</label>
+          <input type="text" class="form-control" id="experience" formControlName="experience">
         </div>
-        <div class="mb-3">
-            <label for="experience" class="form-label">Nível de Experiência</label>
-            <input type="text" class="form-control" id="experience" formControlName="experience">
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Salvar</button>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Salvar</button>
-    </form>
+      </form>
+    </div>
 </div>
+  

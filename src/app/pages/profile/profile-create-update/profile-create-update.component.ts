@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProfileService } from '../../../services/profile.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile-create-update',
@@ -50,10 +51,20 @@ export class ProfileCreateUpdateComponent implements OnInit {
       if (this.isEditMode && this.profileId) {
         formValue.id = this.profileId;
         this.profileService.atualizar(formValue).subscribe(() => {
+          Swal.fire({
+            title: 'Usuário atualizado com sucesso!',
+            text: 'Continue editando usuários!',
+            icon: 'success',
+          })
           this.router.navigate(['/profile']);
         });
       } else {
         this.profileService.cadastrar(formValue).subscribe(() => {
+          Swal.fire({
+            title: 'Usuários cadastrado com sucesso!',
+            text: 'Continue cadastrando usuários como preferir!',
+            icon: 'success',
+          })
           this.router.navigate(['/profile']);
         });
       }

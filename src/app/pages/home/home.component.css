@@ -1,0 +1,27 @@
+header {
+    background-color: #007bff;
+    color: #fff;
+}
+
+header .bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-footer a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.container ul {
+    padding-left: 0;
+    list-style: none;
+}

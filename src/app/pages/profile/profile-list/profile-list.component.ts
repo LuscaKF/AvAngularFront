@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../../services/profile.service';
 import { Person } from '../../../interfaces/person-model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile-list',
@@ -22,10 +23,26 @@ export class ProfileListComponent implements OnInit {
   }
 
   onDelete(id: string): void {
-    if (confirm('Tem certeza que deseja excluir esta pessoa?')) {
-      this.profileService.excluir(id).subscribe(() => {
-        this.profiles = this.profiles.filter(profile => profile.id !== id);
-      });
-    }
+    Swal.fire({
+      title: 'Tem certeza que deseja excluir esta pessoa?',
+      text: "Esta ação não pode ser desfeita!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, excluir!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.profileService.excluir(id).subscribe(() => {
+          this.profiles = this.profiles.filter(profile => profile.id !== id);
+          Swal.fire(
+            'Excluído!',
+            'A pessoa foi excluída com sucesso.',
+            'success'
+          );
+        });
+      }
+    });
   }
 }
