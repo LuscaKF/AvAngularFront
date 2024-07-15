@@ -76,8 +76,8 @@ A estrutura do projeto está organizada da seguinte forma:
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone (https://github.com/LuscaKF/AvAngularFront.git)
+cd AvAngularFront
 ```
 
 ## Instale as dependências:
